@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ren MVC</title>
+    <style>
+        body {
+            background-color: rgb(90, 90, 90);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+
+    <script>
+        //Modell - Denne holder på informasjonen vår
+        const app = document.getElementById('app')
+        let text = "teksten"
+
+        //View
+        changeView()
+        function changeView() {
+            app.innerHTML = /*HTML*/ `
+            <div>Dette er Viewet som viser ${text} vår</div>
+            <button onclick="changeText()">Endre tekst</button>
+            `;
+        }
+
+        //Controller - denner ender Modellen vår
+        function changeText() {
+            text = "Modellen*";
+            changeView();
+        }
+
+
+    </script>
+
+</body>
+
+</html>

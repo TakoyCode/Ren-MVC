@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overgang til MVC, Gjort til MVC</title>
+    <style>
+        body {
+            background-color: rgb(90, 90, 90);
+        }
+
+        .group {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            width: 250px;
+            gap: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script>
+
+        //Modell
+        const app = document.getElementById('app');
+        let name = "Audun";
+        let place = "Drammen";
+        let food = "Lefser";
+
+
+        //View
+        updateView();
+        function updateView() {
+            app.innerHTML = /*HTML*/ `
+
+        <div class="group">
+            <div>Hei jeg heter</div>
+            <div id="namediv">${name}</div>
+        </div>
+        <div class="group">
+            <div>Jeg bor i</div>
+            <div id="placediv">${place}</div>
+        </div>
+        <div class="group">
+            <div>Min favorittmat er</div>
+            <div id="fooddiv">${food}</div>
+        </div>
+
+        <button onclick="updateView()">Klikk her for å sette verdier</button>
+        <div class="column">
+            <label>Set Name</label>
+            <input type="text" onchange="setName(this.value)">
+            <label>Set Place</label>
+            <input type="text" onchange="setPlace(this.value)">
+            <label>Set Food</label>
+            <input type="text" onchange="setFood(this.value)">
+        </div>
+
+        `;
+        }
+
+        //Controller - styerer endring av moddellen
+        function setName(nameInput) {
+            name = nameInput;
+            updateView();
+        }
+        function setPlace(placeInput) {
+            place = placeInput;
+            updateView();
+        }
+        function setFood(foodInput) {
+            food = foodInput;
+            updateView();
+        }
+
+    </script>
+
+
+</body>
+
+</html>
